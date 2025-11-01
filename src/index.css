@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Modern UPI-inspired vibrant color scheme */
+    --background: 240 20% 98%;
+    --foreground: 240 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+
+    /* Vibrant purple-blue gradient primary */
+    --primary: 250 95% 62%;
+    --primary-light: 260 90% 70%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Bright accent colors */
+    --secondary: 280 85% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 20% 96%;
+    --muted-foreground: 240 10% 45%;
+
+    --accent: 170 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 15% 92%;
+    --input: 240 15% 95%;
+    --ring: 250 95% 62%;
+
+    /* Success color - bright green */
+    --success: 142 76% 45%;
+    --success-light: 142 70% 55%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning color - bright orange */
+    --warning: 35 100% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Info color - bright blue */
+    --info: 210 95% 58%;
+    --info-foreground: 0 0% 100%;
+
+    /* Vibrant gradients for modern UPI look */
+    --gradient-primary: linear-gradient(135deg, hsl(250 95% 62%), hsl(280 85% 65%));
+    --gradient-success: linear-gradient(135deg, hsl(142 76% 45%), hsl(142 70% 55%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(240 20% 98%));
+    --gradient-accent: linear-gradient(135deg, hsl(170 80% 50%), hsl(190 75% 55%));
+    --gradient-shimmer: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.3), transparent);
+
+    /* Smooth border radius for modern feel */
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 15% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 12% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 12% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 250 90% 68%;
+    --primary-light: 260 85% 75%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 80% 70%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 12% 18%;
+    --muted-foreground: 240 10% 65%;
+
+    --accent: 170 75% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 50%;
+    --success-light: 142 65% 60%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 95% 60%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 210 90% 62%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 240 12% 20%;
+    --input: 240 12% 18%;
+    --ring: 250 90% 68%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(250 90% 68%), hsl(280 80% 70%));
+    --gradient-success: linear-gradient(135deg, hsl(142 70% 50%), hsl(142 65% 60%));
+    --gradient-card: linear-gradient(135deg, hsl(240 12% 12%), hsl(240 12% 15%));
+    --gradient-accent: linear-gradient(135deg, hsl(170 75% 55%), hsl(190 70% 60%));
+    --gradient-shimmer: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.1), transparent);
+
+    --sidebar-background: 240 12% 10%;
+    --sidebar-foreground: 240 10% 95%;
+    --sidebar-primary: 250 90% 68%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 12% 18%;
+    --sidebar-accent-foreground: 240 10% 95%;
+    --sidebar-border: 240 12% 20%;
+    --sidebar-ring: 250 90% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  /* Smooth animations for mobile-style interactions */
+  .animate-bounce-in {
+    animation: bounce-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+    background: var(--gradient-shimmer);
+    background-size: 200% 100%;
+  }
+
+  .animate-pulse-success {
+    animation: pulse-success 0.6s cubic-bezier(0.4, 0, 0.6, 1);
+  }
+
+  .animate-spin-slow {
+    animation: spin 2s linear infinite;
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-lg border border-white/10;
+  }
+
+  /* Smooth hover lift */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Button press effect */
+  .active-scale {
+    @apply active:scale-95 transition-transform duration-100;
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-success {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

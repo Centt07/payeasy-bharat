@@ -1,0 +1,7 @@
+project_id = "lecsipoddaqsjvoajoof"
+
+[functions.create-razorpay-payment]
+verify_jwt = true
+
+[functions.verify-razorpay-webhook]
+verify_jwt = false
