@@ -7,7 +7,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Mail, Phone, CreditCard } from 'lucide-react';
+import { Loader2, Mail, Phone } from 'lucide-react';
+import logo from "@/assets/logo.png";
+
 
 const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -81,16 +83,15 @@ const Auth = () => {
     <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-secondary/10 flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <div className="flex justify-center mb-4">
-            <div className="p-3 bg-primary/10 rounded-full">
-              <CreditCard className="h-8 w-8 text-primary" />
-            </div>
-          </div>
-          <CardTitle className="text-2xl font-bold">Billing Payment System</CardTitle>
-          <CardDescription>
-            Access your account to manage bills and payments
-          </CardDescription>
-        </CardHeader>
+  <div className="flex justify-center mb-4">
+    <img src={logo} alt="PayEasy Bharat Logo" className="h-16 w-16 object-contain mb-2" />
+  </div>
+  <CardTitle className="text-2xl font-bold">Billing Payment System</CardTitle>
+  <CardDescription>
+    Access your account to manage bills and payments
+  </CardDescription>
+</CardHeader>
+
         <CardContent>
           <Tabs defaultValue="login" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
@@ -99,39 +100,51 @@ const Auth = () => {
             </TabsList>
             
             <TabsContent value="login">
-              <form onSubmit={handleSignIn} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="login-email">Email</Label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="login-email"
-                      type="email"
-                      placeholder="your@email.com"
-                      className="pl-10"
-                      value={loginData.email}
-                      onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="login-password">Password</Label>
-                  <Input
-                    id="login-password"
-                    type="password"
-                    placeholder="Enter your password"
-                    value={loginData.password}
-                    onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
-                    required
-                  />
-                </div>
-                <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  Sign In
-                </Button>
-              </form>
-            </TabsContent>
+  <form onSubmit={handleSignIn} className="space-y-4">
+    <div className="space-y-2">
+      <Label htmlFor="login-email">Email</Label>
+      <div className="relative">
+        <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+        <Input
+          id="login-email"
+          type="email"
+          placeholder="your@email.com"
+          className="pl-10"
+          value={loginData.email}
+          onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
+          required
+        />
+      </div>
+    </div>
+    <div className="space-y-2">
+      <Label htmlFor="login-password">Password</Label>
+      <Input
+        id="login-password"
+        type="password"
+        placeholder="Enter your password"
+        value={loginData.password}
+        onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
+        required
+      />
+    </div>
+
+    {/* ✅ Forgot password link */}
+    <div className="text-right">
+      <a
+        href="/forgot-password"
+        className="text-sm text-blue-600 hover:underline"
+      >
+        Forgot password?
+      </a>
+    </div>
+
+    <Button type="submit" className="w-full" disabled={isLoading}>
+      {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+      Sign In
+    </Button>
+  </form>
+</TabsContent>
+
             
             <TabsContent value="signup">
               <form onSubmit={handleSignUp} className="space-y-4">
